@@ -54,9 +54,10 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <ButtonAppBar/>
+      
 
    <Routers>
+   <ButtonAppBar/>
      <Route path="/home" component={Home}></Route>
    </Routers>
    <ParticleBackground settings={settings}/>
