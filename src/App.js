@@ -1,8 +1,9 @@
-
+import { BrowserRouter as Routers, Route } from "react-router-dom";
 import './App.css';
 import ParticleBackground from 'react-particle-backgrounds'
 import ButtonAppBar from './components/AppBar';
 import {  createTheme, ThemeProvider } from '@mui/material';
+import Home from "./components/Home";
 const darkTheme = createTheme({
   palette:  {
     type: 'light',
@@ -28,20 +29,20 @@ function App() {
     canvas: {
       canvasFillSpace: true,
       width: 200,
-      height: 768,
+      height: 100,
       useBouncyWalls: true
     },
     particle: {
-      particleCount: 20,
+      particleCount: 30,
       color: '#94ecbe',
-      minSize: 10,
-      maxSize: 20
+      minSize: 5,
+      maxSize: 10
     },
     velocity: {
       directionAngle: 0,
       directionAngleVariance: 360,
       minSpeed: 1,
-      maxSpeed: 3
+      maxSpeed: 2
     },
     opacity: {
       minOpacity: 0.3,
@@ -54,6 +55,10 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <ButtonAppBar/>
+
+   <Routers>
+     <Route path="/home" component={Home}></Route>
+   </Routers>
    <ParticleBackground settings={settings}/>
    </ThemeProvider>
   );
