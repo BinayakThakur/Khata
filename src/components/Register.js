@@ -58,7 +58,7 @@ const Sign =()=>{
     const login=()=>{
         return (
             <>
-            <Card>
+            <Card className="mt-5">
                 <CardContent>
             <Formik initialValues={signform} onSubmit={signSubmit}>
 
