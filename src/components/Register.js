@@ -1,5 +1,4 @@
-import { Alert,  Button, Card, CardContent, Container, Divider, TextField } from "@mui/material";
-import { Box } from "@mui/system";
+import { Alert,  Button, Card, CardContent,  Container, Divider, Grid,  TextField } from "@mui/material";
 import { Formik } from "formik";
 import {  useState } from "react";
 import ParticleBackground from 'react-particle-backgrounds'
@@ -7,7 +6,7 @@ const settings = {
     canvas: {
       canvasFillSpace: true,
       width: 100,
-      height: 250,
+      height: 300,
       useBouncyWalls: false
     },
     particle: {
@@ -67,7 +66,7 @@ const Sign =()=>{
                 values,handleSubmit,handleChange
             })=>(
                 <form onSubmit={handleSubmit}>
-                <TextField className="mt-4 ms-3" fullWidth id="user" label="Enter ID" variant="standard" style={{width:"96%"}} onChange={handleChange} value={values.user}/><br/>
+                <TextField className="mt-4 ms-3" fullWidth id="user" label="Enter ID" variant="standard" style={{width:"98%"}} onChange={handleChange} value={values.user}/><br/>
                 <TextField 
                   className="mt-2 ms-3"
                   variant="standard"
@@ -77,7 +76,7 @@ const Sign =()=>{
                   fullWidth
                   onChange={handleChange} value={values.password}
                 
-                  style={{width:"96%"}}
+                  style={{width:"98%"}}
                  />
                  <TextField 
                   className="mt-2 ms-3"
@@ -88,7 +87,7 @@ const Sign =()=>{
                   fullWidth
 
                 
-                  style={{width:"96%"}}
+                  style={{width:"98%"}}
                  /><br/>
                 <TextField
                 className="mt-4 ms-3"
@@ -98,21 +97,27 @@ const Sign =()=>{
                 label="Birthday"
                 type="date"
                 defaultValue="2000-12-31"
-                sx={{ width: "96%" }}
+                sx={{ width: "98%" }}
                 InputLabelProps={{
                 shrink: true,
                 }}
                 />
                 <br/>
-                <Box>
-                <Button variant="contained" className="mt-3 ms-4" type="submit" style={{width:"45%"}} >
-                     Sign up
+                <Grid
+                container
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                >
+                 
+                 <Grid item>
+                <Button variant="contained" className="mt-3 ms-5" type="submit" >
+                     Register
                  </Button>
-                 <Button variant="contained" className="mt-3 ms-5" style={{width:"45%"}} >
-                     Login
-                 </Button>
-                </Box>
+                 </Grid>
                 
+                   
+                 </Grid>
                  
                  </form>
     
