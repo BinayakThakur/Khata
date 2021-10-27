@@ -1,4 +1,5 @@
 import { Alert,  Button, Card, CardContent, Container, Divider, TextField } from "@mui/material";
+import { Box } from "@mui/system";
 import { Formik } from "formik";
 import {  useState } from "react";
 import ParticleBackground from 'react-particle-backgrounds'
@@ -103,9 +104,15 @@ const Sign =()=>{
                 }}
                 />
                 <br/>
-                 <Button variant="contained" className="mt-3" type="submit" fullWidth>
+                <Box>
+                <Button variant="contained" className="mt-3 ms-4" type="submit" style={{width:"45%"}} >
                      Sign up
                  </Button>
+                 <Button variant="contained" className="mt-3 ms-5" style={{width:"45%"}} >
+                     Login
+                 </Button>
+                </Box>
+                
                  
                  </form>
     

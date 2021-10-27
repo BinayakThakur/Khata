@@ -13,10 +13,10 @@ export default function ButtonAppBar() {
   useEffect(
     ()=>{
       if(isLogged){
-        setOption(<>Log out</>)
+        setOption(<Button color="inherit" className="under">Log out</Button>)
       }
       else{
-        setOption(<>Register</>)
+        setOption(<Button color="inherit" className="under"><Link to="/register" style={{ textDecoration: 'none' ,color:"white"}}>Register</Link></Button>)
       }
     },[setOption,isLogged]
   )
@@ -30,7 +30,7 @@ export default function ButtonAppBar() {
           </Typography>
         
        
-          <Button color="inherit" sx={{color:"white"}} className="under">{option}</Button>
+          {option}
         </Toolbar>
       </AppBar>
     </Box>
