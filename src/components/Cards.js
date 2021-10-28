@@ -1,6 +1,8 @@
 import { Button,Divider, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useContext } from "react";
 import {  Bar } from 'react-chartjs-2';
+import { DataProvider } from "../Datacontext";
 const options = {
     scales: {
       yAxes: [
@@ -39,9 +41,10 @@ const options = {
       },
     ],
   };
+const {currentUser}=useContext(DataProvider);
 const Cards=()=>{
     return(<>
-          <Typography variant="h5" className="mt-4 ms-3"   sx={{background:"#ffffff00",color:"white"}}>Summary</Typography>
+          <Typography variant="h5" className="mt-4 ms-3"   sx={{background:"#ffffff00",color:"white"}}>{currentUser} Summary</Typography>
           <Divider className="mt-3"></Divider>
           <Box sx={{background:"#ffffff00",color:"white"}}>
          
