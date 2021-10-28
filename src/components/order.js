@@ -17,8 +17,8 @@ const options = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
       {
-        label: '# of Votes',
-        data: [4, 2, 8, 3, 2, 1],
+        label: ' Number of votes',
+        data: [1, 9, 5, 3, 6, 3],
         backgroundColor: [
           'rgba(255, 255, 255, 1)',
           'rgba(54, 162, 235, 1)',
@@ -35,7 +35,7 @@ const options = {
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)',
         ],
-        borderWidth: 1,
+        borderWidth: 6,
       },
     ],
   };
@@ -71,7 +71,7 @@ const Order = ()=>{
            <Divider className="mt-3"></Divider>
          <CardContent>
            <Fade>
-          <Line data={data} options={options} className="mt-4" height="10" width="100"/>
+          <Line data={data} options={options} className="mt-4" height="30" width="100"/>
           </Fade>
         </CardContent>
        

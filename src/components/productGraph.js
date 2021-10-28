@@ -20,8 +20,8 @@ const options = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
       {
-        label: '# of Votes',
-        data: [4, 2, 8, 3, 2, 1],
+        label: 'Number of Votes',
+        data: [4,2, 8, 3, 2, 1],
         backgroundColor: [
           'rgba(255, 255, 255, 1)',
           'rgba(54, 162, 235, 1)',

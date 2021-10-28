@@ -4,7 +4,7 @@ export const DataContext = createContext();
 
 export const DataProvider = props =>{
     
-    const[isLogged,setLogged]=useState(true);
+    const[isLogged,setLogged]=useState(false);
     const[currentUser,setUser]=useState();
     return (
         <DataContext.Provider value={{
