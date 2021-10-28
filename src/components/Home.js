@@ -63,7 +63,18 @@ const data = {
     password:''
 }
 const signSubmit = (e)=>{
-  console.log(e)
+  const reqOptions = {
+    method: 'POST',
+    body: JSON.stringify(e),
+    headers: { 'Content-Type': 'application/json' }
+  }
+fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
+    .then(res => res.json() ).then(data=>{
+      console.log(data)
+    })
+    .catch(err => {
+     
+    })
 }
   const options = {
     scales: {
