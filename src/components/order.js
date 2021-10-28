@@ -35,7 +35,7 @@ const options = {
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)',
         ],
-        borderWidth: 6,
+        borderWidth: 2,
       },
     ],
   };
@@ -71,7 +71,7 @@ const Order = ()=>{
            <Divider className="mt-3"></Divider>
          <CardContent>
            <Fade>
-          <Line data={data} options={options} className="mt-4" height="30" width="100"/>
+          <Line data={data} options={options} className="mt-4" height="45" width="100"/>
           </Fade>
         </CardContent>
        

@@ -1,7 +1,9 @@
 import { Card, CardContent, Divider, Typography } from "@mui/material";
 import Fade from 'react-reveal/Fade';
+import Adding from "./Adding";
 import Order from "./order";
 import Product from "./productGraph";
+import Remove from "./Remove";
 
 const Add = () =>{
     return (<>
@@ -30,11 +32,11 @@ const Add = () =>{
     </Fade>
     <Divider></Divider>
     <Fade>
-    <Typography variant="h6" style={{color:"white"}} className="mt-3">Remove Product</Typography>
-    <Card sx={{width:"100",height:"100",background:"#212121"}} className="mt-4" style={{border:"40px"}}>
+    <Typography variant="h6" style={{color:"white"}} className="mt-3">Order Product</Typography>
+    <Card sx={{width:"100",height:"100",background:"orange",color:"black"}} className="mt-4" style={{border:"40px"}}>
         <CardContent>
             <Fade>
-            
+            <Adding></Adding>
             </Fade>
         </CardContent>
 
@@ -42,11 +44,11 @@ const Add = () =>{
     </Fade>
     <Divider></Divider>
     <Fade>
-    <Typography variant="h6" style={{color:"white"}} className="mt-3">Order product</Typography>
-    <Card sx={{width:"100",height:"100",background:"#212121"}} className="mt-4" style={{border:"40px"}}>
+    <Typography variant="h6" style={{color:"white"}} className="mt-3">Remove product</Typography>
+    <Card sx={{width:"100",height:"100",background:"pink",color:"black"}} className="mt-4" style={{border:"40px"}}>
         <CardContent>
             <Fade>
-            
+            <Remove></Remove>
             </Fade>
         </CardContent>
 
