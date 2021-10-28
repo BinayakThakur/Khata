@@ -5,6 +5,7 @@ import {  createTheme, ThemeProvider } from '@mui/material';
 import Home from "./components/Home";
 import { DataProvider } from "./Datacontext";
 import Sign from "./components/Register";
+import { SnackbarProvider } from 'notistack';
 const darkTheme = createTheme({
   palette:  {
     type: 'light',
@@ -29,6 +30,7 @@ function App() {
   
   return (
     <ThemeProvider theme={darkTheme}>
+      <SnackbarProvider>
     <DataProvider>
 
    <Routers>
@@ -37,6 +39,7 @@ function App() {
   <Route path="/register" component={Sign}></Route>
    </Routers>
     </DataProvider>
+    </SnackbarProvider>
    </ThemeProvider>
   );
 }

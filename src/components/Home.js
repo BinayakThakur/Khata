@@ -6,6 +6,7 @@ import { DataContext} from "../Datacontext";
 import Cards from "./Cards";
 import { Formik } from "formik";
 import ParticleBackground from 'react-particle-backgrounds'
+import { useSnackbar } from "notistack";
 const settings = {
   canvas: {
     canvasFillSpace: true,
@@ -62,20 +63,7 @@ const data = {
     user : '',
     password:''
 }
-const signSubmit = (e)=>{
-  const reqOptions = {
-    method: 'POST',
-    body: JSON.stringify(e),
-    headers: { 'Content-Type': 'application/json' }
-  }
-fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
-    .then(res => res.json() ).then(data=>{
-      console.log(data)
-    })
-    .catch(err => {
-     
-    })
-}
+
   const options = {
     scales: {
       yAxes: [
@@ -89,9 +77,30 @@ fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
   };
   
 const Home = () =>{
+    const{enqueueSnackbar, closeSnackbar} = useSnackbar();
     const[myData,setData]=useState(<></>);
     const {isLogged} = useContext(DataContext);
-    
+    const {setLogged} =  useContext(DataContext);
+    const signSubmit = (e)=>{
+      const reqOptions = {
+        method: 'POST',
+        body: JSON.stringify(e),
+        headers: { 'Content-Type': 'application/json' }
+      }
+    fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
+        .then(res => res.json() ).then(data=>{
+          if(data==true){
+            enqueueSnackbar("Logged",{variant:"success"});
+            setLogged(true);
+          }
+          else{
+            enqueueSnackbar("ID or Password is wrong",{variant:"error"});
+          }
+        })
+        .catch(err => {
+         
+        })
+    }
     useEffect(()=>{
       if(isLogged){
       setData(
