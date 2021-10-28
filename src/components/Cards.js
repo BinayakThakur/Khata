@@ -1,6 +1,6 @@
 import { Button,Divider, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { Bar } from 'react-chartjs-2';
+import {  Bar } from 'react-chartjs-2';
 const options = {
     scales: {
       yAxes: [
@@ -18,7 +18,7 @@ const options = {
     datasets: [
       {
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [4, 2, 8, 3, 2, 1],
         backgroundColor: [
           'rgba(255, 255, 255, 1)',
           'rgba(54, 162, 235, 1)',
@@ -41,10 +41,13 @@ const options = {
   };
 const Cards=()=>{
     return(<>
-            <Typography variant="h5" className="mt-4 ms-3"   sx={{background:"#ffffff00",color:"white"}}>Summary</Typography>
+          <Typography variant="h5" className="mt-4 ms-3"   sx={{background:"#ffffff00",color:"white"}}>Summary</Typography>
           <Divider className="mt-3"></Divider>
           <Box sx={{background:"#ffffff00",color:"white"}}>
-              <Toolbar>
+         
+          <Bar data={data} options={options} className="mt-4" height="40" width="80"/>
+
+          <Toolbar>
           <Box>
           <Typography variant="caption" className="mt-4" >Average</Typography>
           <Typography variant="h5" >23,000 rs</Typography>
@@ -63,7 +66,6 @@ const Cards=()=>{
           </Box>
           
               </Toolbar>
-          <Bar data={data} options={options} className="mt-4" height="22" width="60"/>
          </Box>
          <Box>
           

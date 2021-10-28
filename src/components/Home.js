@@ -42,6 +42,7 @@ const settings = {
 const Home = () =>{
     const{enqueueSnackbar} = useSnackbar();
     const[myData,setData]=useState(<></>);
+    const{setUser}=useContext(DataContext);
     const {isLogged} = useContext(DataContext);
     const {setLogged} =  useContext(DataContext);
     const signSubmit = (e)=>{
@@ -55,6 +56,7 @@ const Home = () =>{
           if(data===true){
             enqueueSnackbar("Logged",{variant:"success"});
             setLogged(true);
+            setUser(e.user)
           }
           else{
             enqueueSnackbar("ID or Password is wrong",{variant:"error"});
