@@ -35,9 +35,10 @@ const Sign =()=>{
 
     
     const signform={
-        user : '',
+        name : '',
+        email:'',
         password:'',
-        date:''
+        dob:''
     }
     const signSubmit = (e)=>{
 
@@ -46,7 +47,7 @@ const Sign =()=>{
             body: JSON.stringify(e),
             headers: { 'Content-Type': 'application/json' }
         }
-        fetch("https://react-rest-spring.herokuapp.com/mregister", reqOptions)
+        fetch("https://butlerservice.herokuapp.com/users/add", reqOptions)
             .then(res => res.json() )
             .then( 
                 setUpdate(<Alert severity="success" className="ms-4">Registered!</Alert>)
@@ -66,8 +67,21 @@ const Sign =()=>{
                 values,handleSubmit,handleChange
             })=>(
                 <form onSubmit={handleSubmit}>
-                <TextField className="mt-4 ms-3" fullWidth id="user" label="Enter ID" variant="standard" style={{width:"98%"}} onChange={handleChange} value={values.user}/><br/>
-                <TextField 
+                <TextField className="mt-4 ms-3" fullWidth id="name" label="Enter ID" variant="standard" style={{width:"98%"}} onChange={handleChange} value={values.name}/><br/>
+                
+                 <TextField 
+                  className="mt-2 ms-3"
+                  variant="standard"
+                  id="email"
+                  label="E-mail"
+                  type="email"
+                  fullWidth
+                  onChange={handleChange}
+                  value={ values.email}
+                
+                  style={{width:"98%"}}
+                 /><br/>
+                 <TextField 
                   className="mt-2 ms-3"
                   variant="standard"
                   id="password"
@@ -77,22 +91,11 @@ const Sign =()=>{
                   onChange={handleChange} value={values.password}
                 
                   style={{width:"98%"}}
-                 />
-                 <TextField 
-                  className="mt-2 ms-3"
-                  variant="standard"
-                  id="confirm"
-                  label="confirm"
-                  type="password"
-                  fullWidth
-
-                
-                  style={{width:"98%"}}
                  /><br/>
                 <TextField
                 className="mt-4 ms-3"
-                id="date"
-                onChange={handleChange} value={values.date}
+                id="dob"
+                onChange={handleChange} value={values.dob}
                 variant="standard"
                 label="Birthday"
                 type="date"
