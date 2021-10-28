@@ -12,20 +12,23 @@ export default function ButtonAppBar() {
   const[option,setOption] = useState();
   const {isLogged} = useContext(DataContext);
   const {setLogged} =  useContext(DataContext);
-  const{enqueueSnackbar, closeSnackbar} = useSnackbar();
+  const{enqueueSnackbar} = useSnackbar();
+  // eslint-disable-next-line
   const logOut=()=>{
     setLogged(false);
     enqueueSnackbar("Logged out",{variant:"success"})
   }
   useEffect(
     ()=>{
+      
       if(isLogged){
+        
         setOption(<Button color="inherit" className="under" onClick={logOut}>Log out</Button>)
       }
       else{
         setOption(<Button color="inherit" className="under"><Link to="/register" style={{ textDecoration: 'none' ,color:"white"}}>Register</Link></Button>)
       }
-    },[setOption,isLogged]
+    },[setOption,isLogged,logOut]
   )
     return (
     <Box sx={{ flexGrow: 3}}>

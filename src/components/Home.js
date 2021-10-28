@@ -77,7 +77,7 @@ const data = {
   };
   
 const Home = () =>{
-    const{enqueueSnackbar, closeSnackbar} = useSnackbar();
+    const{enqueueSnackbar} = useSnackbar();
     const[myData,setData]=useState(<></>);
     const {isLogged} = useContext(DataContext);
     const {setLogged} =  useContext(DataContext);
@@ -89,7 +89,7 @@ const Home = () =>{
       }
     fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
         .then(res => res.json() ).then(data=>{
-          if(data==true){
+          if(data===true){
             enqueueSnackbar("Logged",{variant:"success"});
             setLogged(true);
           }
@@ -182,6 +182,7 @@ const Home = () =>{
         
      
       }
+      // eslint-disable-next-line
     },[isLogged,setData])
     return(
         <>
