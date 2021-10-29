@@ -26,7 +26,7 @@ export default function ButtonAppBar() {
         
         setOption(<Button color="inherit" className="under" onClick={logOut}>Log out</Button>)
       }
-     
+     // eslint-disable-next-line
     },[isLogged]
   );
   useEffect(()=>{
