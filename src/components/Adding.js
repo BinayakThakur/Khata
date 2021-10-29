@@ -5,8 +5,9 @@ import Fade from 'react-reveal/Fade';
 import { DataContext } from "../Datacontext";
 const Adding=()=>{
     const {currentUser} = useContext(DataContext);
+    const val=currentUser.user;
     const productData={
-        user : currentUser,
+        user : val,
         product:'',
         date:'',
         quantity:'',
@@ -16,7 +17,7 @@ const Adding=()=>{
     }
     const [update,setUpdate]=useState(<></>)
     const productSubmit = (e) =>{
-        
+        console.log(e);
         const reqOptions = {
             method: 'POST',
             body: JSON.stringify(e),
@@ -25,7 +26,7 @@ const Adding=()=>{
         fetch("https://butlerservice.herokuapp.com/users/product", reqOptions)
             .then(res => res.json() )
             .then( 
-                setUpdate(<Alert severity="success" className="ms-4">Added!</Alert>)
+                setUpdate(<Fade><Alert severity="success" className="ms-4 mt-4">Added!</Alert></Fade>)
             )
             .catch(err => {
              
@@ -49,7 +50,7 @@ const Adding=()=>{
                     <TextField id="category" onChange={handleChange}  value={values.category} variant="standard" label="Home/Bill/FastFood/Diet/Travel/Misc" fullWidth className="mt-2"></TextField><br/>
                     </Fade>
                     <Button variant="contained" className="mt-4" type="submit">Add</Button>
-                    <Button variant="contained" className="mt-4 ms-3" type="reset">Reset</Button>
+            
                 </form>
             
 

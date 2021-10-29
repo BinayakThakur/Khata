@@ -14,7 +14,7 @@ const options = {
   };
   
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Home', 'Bill', 'FastFood', 'Diet', 'Travel', 'Misc'],
     datasets: [
       {
         label: ' Number of votes',

@@ -1,26 +1,37 @@
 import { Card, CardContent, Divider, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import {  Bar } from 'react-chartjs-2';
 import { DataContext } from "../Datacontext";
 import Fade from 'react-reveal/Fade';
 const options = {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
+  
   };
   
+  
+
+const Product=()=>{
+  const{currentUser}=useContext(DataContext);
+  const{setProdData}=useContext(DataContext);
+  useEffect(()=>{
+    const reqOptions = {
+      method: 'POST',
+      body: JSON.stringify(currentUser),
+      headers: { 'Content-Type': 'application/json' }
+    }
+  fetch("https://butlerservice.herokuapp.com/users/productData", reqOptions)
+      .then(res => res.json() ).then(data=>{setProdData(data)}).catch(err => {
+           
+      })
+
+
+  },[currentUser,setProdData])
+
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Home', 'Bill', 'FastFood', 'Diet', 'Travel', 'Misc'],
     datasets: [
       {
-        label: 'Number of Votes',
+        label: 'Money used',
         data: [4,2, 8, 3, 2, 1],
         backgroundColor: [
           'rgba(255, 255, 255, 1)',
@@ -42,12 +53,10 @@ const options = {
       },
     ],
   };
-
-const Product=()=>{
-  const {currentUser}=useContext(DataContext);
+  
     return(<>
     <Fade top>
-     <Typography variant="h5" className="mt-4 ms-3 "   sx={{background:"#ffffff00",color:"orange"}}>{currentUser} Summary</Typography>
+     <Typography variant="h5" className="mt-4 ms-3 "   sx={{background:"#ffffff00",color:"orange"}}>{currentUser.user} Summary</Typography>
     
      <Toolbar style={{color:"white"}}>
     

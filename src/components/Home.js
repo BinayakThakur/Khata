@@ -59,7 +59,7 @@ const Home = () =>{
             if(data===true){
               enqueueSnackbar("Logged",{variant:"success"});
               setLogged(true);
-              setUser(e.user)
+              setUser({"user":e.user});
             }
             else{
               enqueueSnackbar("ID or Password is wrong",{variant:"error"});
