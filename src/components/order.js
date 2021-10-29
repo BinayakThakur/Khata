@@ -1,6 +1,8 @@
 import { Card, CardContent, Divider, Typography ,Toolbar,Box} from "@mui/material";
 import Fade from 'react-reveal/Fade';
 import {  Line } from 'react-chartjs-2';
+import { useContext, useEffect, useState } from "react";
+import { DataContext } from "../Datacontext";
 const options = {
     scales: {
       yAxes: [
@@ -12,13 +14,54 @@ const options = {
       ],
     },
   };
-  
+
+
+const Order = ()=>{
+  const [label,setLabel]=useState();
+  const [mdata,setData]=useState();
+  var lab=[];
+  var mydata=[];
+  const {productData}=useContext(DataContext);
+  Object.size = function(obj) {
+    var size = 0,
+      key;
+    for (key in obj) {
+      if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+  };
+  useEffect(()=>{
+    if(productData!==undefined && Object.size(productData)>1){
+      // eslint-disable-next-line
+      productData.map((val)=>{
+        lab.push(val.date);
+
+      });
+      setLabel(lab);
+      
+      if(productData!==undefined && Object.size(productData)>1){
+        // eslint-disable-next-line
+      productData.map((val)=>{
+        console.log()
+        mydata.push(0);
+        mydata[lab.indexOf(val.date+"")]=parseInt(mydata[lab.indexOf(val.date+"")])+parseInt(val.price);
+        if( isNaN(mydata[lab.indexOf(val.date+"")])){
+          mydata[lab.indexOf(val.date+"")]=0;
+        }
+        
+        
+      });}
+      console.log(mydata)
+      setData(mydata);
+    }
+// eslint-disable-next-line
+  },[productData])
   const data = {
-    labels: ['Home', 'Bill', 'FastFood', 'Diet', 'Travel', 'Misc'],
+    labels: label,
     datasets: [
       {
-        label: ' Number of votes',
-        data: [1, 9, 5, 3, 6, 3],
+        label: 'Money spent',
+        data:mdata,
         backgroundColor: [
           'rgba(255, 255, 255, 1)',
           'rgba(54, 162, 235, 1)',
@@ -39,8 +82,6 @@ const options = {
       },
     ],
   };
-
-const Order = ()=>{
     return(<>
      <Fade top>
      
@@ -56,15 +97,15 @@ const Order = ()=>{
        <Box>
          
        <Typography variant="caption" className="" style={{color:"cyan"}}>increase</Typography>
-       <Typography variant="h5" className="">10% </Typography>
+       <Typography variant="h5" className="">N/A </Typography>
        </Box>
        <Box>
        <Typography variant="caption" className="ms-4">decrease</Typography>
-       <Typography variant="h5" className="ms-4">10% </Typography>
+       <Typography variant="h5" className="ms-4">N/A </Typography>
        </Box>
        <Box>
        <Typography variant="caption" className="ms-4"  style={{color:"#ff6699"}}>Stocks</Typography>
-       <Typography variant="h5" className="ms-4">+10% </Typography>
+       <Typography variant="h5" className="ms-4">N/A </Typography>
        </Box>
        
            </Toolbar>

@@ -64,15 +64,15 @@ const Product=()=>{
         <Box>
           
         <Typography variant="caption" className="" style={{color:"cyan"}}>increase</Typography>
-        <Typography variant="h5" className="">10% </Typography>
+        <Typography variant="h5" className="">N/A </Typography>
         </Box>
         <Box>
         <Typography variant="caption" className="ms-4">decrease</Typography>
-        <Typography variant="h5" className="ms-4">10% </Typography>
+        <Typography variant="h5" className="ms-4">N/A </Typography>
         </Box>
         <Box>
         <Typography variant="caption" className="ms-4"  style={{color:"#ff6699"}}>Stocks</Typography>
-        <Typography variant="h5" className="ms-4">+10% </Typography>
+        <Typography variant="h5" className="ms-4">N/A </Typography>
         </Box>
         
             </Toolbar>
