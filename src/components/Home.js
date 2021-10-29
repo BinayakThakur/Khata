@@ -45,28 +45,30 @@ const Home = () =>{
     const{setUser}=useContext(DataContext);
     const {isLogged} = useContext(DataContext);
     const {setLogged} =  useContext(DataContext);
-    const signSubmit = (e)=>{
-      const reqOptions = {
-        method: 'POST',
-        body: JSON.stringify(e),
-        headers: { 'Content-Type': 'application/json' }
-      }
-    fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
-        .then(res => res.json() ).then(data=>{
-          if(data===true){
-            enqueueSnackbar("Logged",{variant:"success"});
-            setLogged(true);
-            setUser(e.user)
-          }
-          else{
-            enqueueSnackbar("ID or Password is wrong",{variant:"error"});
-          }
-        })
-        .catch(err => {
-         
-        })
-    }
+    
+    
     useEffect(()=>{
+      const signSubmit = (e)=>{
+        const reqOptions = {
+          method: 'POST',
+          body: JSON.stringify(e),
+          headers: { 'Content-Type': 'application/json' }
+        }
+      fetch("https://butlerservice.herokuapp.com/users/get", reqOptions)
+          .then(res => res.json() ).then(data=>{
+            if(data===true){
+              enqueueSnackbar("Logged",{variant:"success"});
+              setLogged(true);
+              setUser(e.user)
+            }
+            else{
+              enqueueSnackbar("ID or Password is wrong",{variant:"error"});
+            }
+          })
+          .catch(err => {
+           
+          })
+      }
       if(isLogged){
       setData(
         <>
