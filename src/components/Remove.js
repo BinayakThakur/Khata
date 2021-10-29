@@ -4,12 +4,20 @@ import { DataContext } from "../Datacontext";
 import Fade from 'react-reveal/Fade';
 import { Box } from "@mui/system";
 const Remove = ()=>{
+    Object.size = function(obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
     const{productData} = useContext(DataContext);
     var products=[];
     const[val,setVal]=useState();
    
     useEffect(()=>{
-        if(productData!=null){
+        if(productData!=null && Object.size(productData)>0){
             console.log(productData)
         // eslint-disable-next-line
         productData.map((product)=>{
@@ -40,6 +48,9 @@ const Remove = ()=>{
             <br/></>)
         })
         setVal(products);}
+        else{
+            setVal(<></>)
+        }
          // eslint-disable-next-line
     },[productData,setVal])
    

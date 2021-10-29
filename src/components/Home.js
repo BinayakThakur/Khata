@@ -11,7 +11,7 @@ const settings = {
   canvas: {
     canvasFillSpace: true,
     width: 100,
-    height: 300,
+    height: 180,
     useBouncyWalls: false
   },
   particle: {

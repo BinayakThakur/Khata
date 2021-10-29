@@ -45,7 +45,7 @@ const Add = () =>{
     <Divider></Divider>
     <Fade>
     <Typography variant="h6" style={{color:"white"}} className="mt-3">Remove product</Typography>
-    <Card sx={{width:"100",height:"500px",background:"pink",color:"black"}} className="mt-4" style={{border:"40px",overflow:"auto"}}>
+    <Card sx={{width:"100",height:"300px",background:"pink",color:"black"}} className="mt-4" style={{border:"40px",overflow:"auto"}}>
         <CardContent>
             <Fade>
             <Remove></Remove>
