@@ -77,7 +77,7 @@ const Home = () =>{
         setData(
 
           <>
-            <Card className="mt-5">
+            <Card className="mt-5" style={{background:"grey"}}>
             <Formik initialValues={signform} onSubmit={signSubmit}>
 
             { ({
@@ -98,7 +98,7 @@ const Home = () =>{
                   style={{width:"96%"}}
                  /><br/>
                  
-                 <Button variant="contained"  className="mt-4 mb-3" sx={{border:"3px",background:"cadetblue"}} fullWidth type="submit">
+                 <Button variant="contained"  className="mt-4 mb-3" sx={{border:"3px",background:"black",}} fullWidth type="submit">
                      Login
                  </Button>
                  

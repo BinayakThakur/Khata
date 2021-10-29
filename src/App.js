@@ -35,7 +35,7 @@ function App() {
 
    <Routers>
    <ButtonAppBar/>
-  <Route path="/home" component={Home}></Route>
+  <Route path="/" component={Home}></Route>
   <Route path="/register" component={Sign}></Route>
    </Routers>
     </DataProvider>
