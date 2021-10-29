@@ -17,17 +17,17 @@ const Remove = ()=>{
     const[val,setVal]=useState();
    
     useEffect(()=>{
-        if(productData!=null && Object.size(productData)>0){
+        if(Object.size(productData)>1 && productData!==undefined){
             console.log(productData)
         // eslint-disable-next-line
         productData.map((product)=>{
             products.push(<>
             
             <br/>
-                
-                <Box sx={{ flexGrow: 3,background:"orange",p:3,border:3,borderRadius:4,gap:4,boxShadow:4,margin:8}}>
+                <Grid item>
+                <Box sx={{ background:"orange",p:1,border:2,borderRadius:4}}>
                 <Typography variant="subtitle2">
-              
+                <Grid>
                 <Grid item className="ms-2 mt-2">Name : {product.product} </Grid> 
                 <Grid item className="ms-2 mt-2">Category : {product.category} </Grid>
                 <Grid item className="ms-2 mt-2">Date : {product.date} </Grid>
@@ -37,6 +37,7 @@ const Remove = ()=>{
                 <Grid item className="mt-4 ">
                 <Button variant="contained" className="ms-3">Remove</Button>
                 </Grid>
+                </Grid>
                 
                
                 
@@ -44,6 +45,7 @@ const Remove = ()=>{
                 
                 </Typography>
                 </Box>
+                </Grid>
             
             <br/></>)
         })
@@ -64,7 +66,7 @@ const Remove = ()=>{
     </Toolbar>
     <Grid
       container
-      direction="row"
+      direction="coloumn"
       justifyContent="space-evenly"
       alignItems="flex-start">
     <Fade>
