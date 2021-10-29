@@ -1,7 +1,7 @@
-import { Alert,Button, TextField, Typography } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { Formik } from "formik";
 import { useSnackbar } from "notistack";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Fade from 'react-reveal/Fade';
 import { DataContext } from "../Datacontext";
 const Adding=()=>{
@@ -17,7 +17,7 @@ const Adding=()=>{
         purpose:'',
         category:''
     }
-    const [update,setUpdate]=useState(<></>)
+    
     const productSubmit = (e) =>{
         console.log(e);
         const reqOptions = {
@@ -28,7 +28,7 @@ const Adding=()=>{
         fetch("https://butlerservice.herokuapp.com/users/product", reqOptions)
             .then(res => res.json() )
             .then( 
-                setUpdate(enqueueSnackbar("Added"),{variant:"success"})
+                enqueueSnackbar("Added"),{variant:"success"}
             )
             .catch(err => {
              
@@ -61,7 +61,7 @@ const Adding=()=>{
 
         }
     </Formik>
-    {update}
+  
     
     
     
