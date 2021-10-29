@@ -35,8 +35,9 @@ function App() {
 
    <Routers>
    <ButtonAppBar/>
-  <Route path="/" component={Home}></Route>
+  
   <Route path="/register" component={Sign}></Route>
+  <Route path="/home" component={Home}></Route>
    </Routers>
     </DataProvider>
     </SnackbarProvider>

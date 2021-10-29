@@ -6,12 +6,12 @@ const settings = {
     canvas: {
       canvasFillSpace: true,
       width: 100,
-      height: 300,
+      height: 140,
       useBouncyWalls: false
     },
     particle: {
       particleCount: 50,
-      color: 'red',
+      color: 'cyan',
       minSize: 2,
       maxSize: 5
     },
@@ -137,6 +137,7 @@ const Sign =()=>{
     
     return(
     <>
+   <ParticleBackground settings={settings} />
     <Container>
         
         

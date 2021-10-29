@@ -77,7 +77,7 @@ const Home = () =>{
         setData(
 
           <>
-            <Card className="mt-5" style={{background:"grey"}}>
+            <Card className="mt-5" style={{background:"orange"}}>
             <Formik initialValues={signform} onSubmit={signSubmit}>
 
             { ({
