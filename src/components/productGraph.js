@@ -1,6 +1,6 @@
 import { Card, CardContent, Divider, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect ,useState} from "react";
 import {  Bar } from 'react-chartjs-2';
 import { DataContext } from "../Datacontext";
 import Fade from 'react-reveal/Fade';
@@ -13,14 +13,55 @@ const options = {
 const Product=()=>{
   const{currentUser}=useContext(DataContext);
   const{setProdData}=useContext(DataContext);
+  const[nhome,setHome]=useState(0);
+  const[nbill,setBill]=useState(0);
+  const[nfast,setFast]=useState(0);
+  const[ndiet,setDiet]=useState(0);
+  const[ntravel,setTravel]=useState(0);
+  const[nmisc,setMisc]=useState(0);
   useEffect(()=>{
     const reqOptions = {
       method: 'POST',
       body: JSON.stringify(currentUser),
       headers: { 'Content-Type': 'application/json' }
     }
+    var home=0;
+    var bill=0;
+    var fast=0;
+    var diet=0;
+    var travel=0;
+    var misc=0;
   fetch("https://butlerservice.herokuapp.com/users/productData", reqOptions)
-      .then(res => res.json() ).then(data=>{setProdData(data)}).catch(err => {
+     
+      .then(res => res.json() ).then(data=>{setProdData(data)
+       
+        // eslint-disable-next-line
+          data.map(
+            // eslint-disable-next-line
+           (nval)=>{ console.log(nval.price+" ")
+            switch((nval.category).toLowerCase()){
+              case "home":home=parseInt(home+parseInt(nval.price));break;
+              case "bill":bill=parseInt(bill+parseInt(nval.price));break;
+              case "fastfood":fast=parseInt(fast+parseInt(nval.price));break;
+              case "diet":diet=parseInt(diet+parseInt(nval.price));break;
+              case "travel":travel=parseInt(travel+parseInt(nval.price));break;
+              case "misc":misc=parseInt(misc+parseInt(nval.price));break;
+              default:break;
+            }
+           
+            setHome(home);
+            setBill(bill);
+            setFast(fast);
+            setDiet(diet);
+            setTravel(travel);
+            setMisc(misc);
+           }
+          )
+      
+      }
+       
+      
+      ).catch(err => {
            
       })
 
@@ -29,10 +70,11 @@ const Product=()=>{
 
   const data = {
     labels: ['Home', 'Bill', 'FastFood', 'Diet', 'Travel', 'Misc'],
+    
     datasets: [
       {
         label: 'Money used',
-        data: [4,2, 8, 3, 2, 1],
+        data: [nhome,nbill, nfast, ndiet, ntravel, nmisc],
         backgroundColor: [
           'rgba(255, 255, 255, 1)',
           'rgba(54, 162, 235, 1)',
