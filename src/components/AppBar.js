@@ -24,10 +24,10 @@ export default function ButtonAppBar() {
       
       if(isLogged){
         
-        setOption(option=>{<Button color="inherit" className="under" onClick={logOut}>Log out</Button>})
+        setOption(<Button color="inherit" className="under" onClick={logOut}>Log out</Button>)
       }
      
-    },[isLogged,logOut,setOption,option]
+    },[isLogged]
   );
   useEffect(()=>{
     if(!isLogged){setOption(<Button color="inherit" className="under"><Link to="/register" style={{ textDecoration: 'none' ,color:"white"}}>Register</Link></Button>)}
