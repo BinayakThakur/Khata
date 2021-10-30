@@ -134,7 +134,7 @@ const Remove = ()=>{
    
     
     <Fade>
-    <Box style={{width:"1000px",height:"500px",overflow:"auto"}}>
+    <Box style={{width:"100%",height:"500px",overflow:"auto"}}>
     <Container>
     <Grid
       container
