@@ -8,19 +8,31 @@ import { useSnackbar } from "notistack";
 
 const Remove = ()=>{
   // eslint-disable-next-line
-
+  var{socket}=useContext(DataContext);
+  const{currentUser}=useContext(DataContext);
   const{enqueueSnackbar} = useSnackbar();
+  const {setChange} = useContext(DataContext);
+  const {change} = useContext(DataContext);
   function sayHello(name) {
     
     fetch("https://butlerservice.herokuapp.com/users/delete/"+name)
     .then(()=>{
-      enqueueSnackbar("Removed",{variant:"success"});
+      enqueueSnackbar("Removed",{variant:"success"})
+    
       
     })
     .catch(err => {
       enqueueSnackbar("Unable to remove",{variant:"error"});
     })
-    
+    setChange(change+11)
+    setChange(change+12)
+    setChange(change+13)
+    setChange(change+11)
+    setChange(change+12)
+    setChange(change+13)
+    setChange(change+11)
+    setChange(change+12)
+    setChange(change+13)
   }
     Object.size = function(obj) {
         var size = 0,
@@ -36,7 +48,7 @@ const Remove = ()=>{
    
     useEffect(()=>{
         if(Object.size(productData)>1 && productData!==undefined){
-    
+          socket.emit("productData",currentUser);
         // eslint-disable-next-line
         productData.map((product)=>{
             products.push(<>
@@ -95,6 +107,7 @@ const Remove = ()=>{
             <Grid item className="ms-2 mt-2">Price : {product.price} </Grid>
             <Grid item className="mt-4 ">
             <Button variant="contained" className="ms-3">Remove</Button>
+            
             </Grid>
             </Grid>
             
@@ -111,11 +124,11 @@ const Remove = ()=>{
     })
     setVal(products);
     }    
-    
+   
     return (<>
     <Toolbar>
     <TextField label="Search Product" variant="standard" className="mt-2"  onChange={e => search(e)}></TextField>
-   
+    
     
     </Toolbar>
    

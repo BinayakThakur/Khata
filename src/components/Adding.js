@@ -9,6 +9,8 @@ const Adding=()=>{
     var{socket}=useContext(DataContext);
     const{enqueueSnackbar} = useSnackbar();
     const {currentUser} = useContext(DataContext);
+    const {setChange} = useContext(DataContext);
+    const {change} = useContext(DataContext);
     const val=currentUser.user;
     const productData={
         user : val,
@@ -21,7 +23,7 @@ const Adding=()=>{
     }
     
     const productSubmit = (e) =>{
-       
+     
         console.log(e);
         const reqOptions = {
             method: 'POST',
@@ -29,18 +31,21 @@ const Adding=()=>{
             headers: { 'Content-Type': 'application/json' }
         }
         
+        socket.emit("productData",currentUser);
         fetch("https://butlerservice.herokuapp.com/users/product", reqOptions)
             .then(res => res.json() )
             .then( 
-                
-                enqueueSnackbar("Added"),{variant:"success"}
-               
+                setChange(change+2),
+                setChange(change+3),
+                setChange(change+4),
+                enqueueSnackbar("Added",{variant:"success"})
+             
             )
             .catch(err => {
              
             })
-            socket.emit("productData",currentUser);
             
+          
        
 
     }

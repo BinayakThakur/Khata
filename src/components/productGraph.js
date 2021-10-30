@@ -1,4 +1,4 @@
-import { Card, CardContent, Divider, Toolbar, Typography } from "@mui/material";
+import { Button, Card, CardContent, Divider, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useContext, useEffect ,useState} from "react";
 import {  Bar } from 'react-chartjs-2';
@@ -15,12 +15,15 @@ const Product=()=>{
   var{socket}=useContext(DataContext);
   const{currentUser}=useContext(DataContext);
   const{setProdData}=useContext(DataContext);
+  const{productData}=useContext(DataContext);
   const[nhome,setHome]=useState(0);
   const[nbill,setBill]=useState(0);
   const[nfast,setFast]=useState(0);
   const[ndiet,setDiet]=useState(0);
   const[ntravel,setTravel]=useState(0);
   const[nmisc,setMisc]=useState(0);
+  const{change}=useContext(DataContext);
+  const{setChange}=useContext(DataContext);
   useEffect(()=>{
     // eslint-disable-next-line
     const reqOptions = {
@@ -29,44 +32,49 @@ const Product=()=>{
       headers: { 'Content-Type': 'application/json' }
     }
   
+    
+    socket.emit("productData",currentUser);
+    socket.on("productData",(data)=>{
+    
+        setProdData(data)
+       
+        // eslint-disable-next-line
+      
+      
+    })
+    
+// eslint-disable-next-line
+  },[change])
+  useEffect(()=>{
     var home=0;
     var bill=0;
     var fast=0;
     var diet=0;
     var travel=0;
     var misc=0;
-    socket.emit("productData",currentUser);
-    socket.on("productData",(data)=>{
-       console.log(reqOptions)
-        setProdData(data)
-       
-        // eslint-disable-next-line
-          data.map(
-            // eslint-disable-next-line
-           (nval)=>{ 
-            switch((nval.category).toLowerCase()){
-              case "home":home=parseInt(home+parseInt(nval.price));break;
-              case "bill":bill=parseInt(bill+parseInt(nval.price));break;
-              case "fastfood":fast=parseInt(fast+parseInt(nval.price));break;
-              case "diet":diet=parseInt(diet+parseInt(nval.price));break;
-              case "travel":travel=parseInt(travel+parseInt(nval.price));break;
-              case "misc":misc=parseInt(misc+parseInt(nval.price));break;
-              default:break;
-            }
-           
-            setHome(home);
-            setBill(bill);
-            setFast(fast);
-            setDiet(diet);
-            setTravel(travel);
-            setMisc(misc);
-           }
-          )
-      
-    })
-    
-// eslint-disable-next-line
-  },[socket])
+    if(productData!==undefined)
+    productData.map(
+      // eslint-disable-next-line
+     (nval)=>{ 
+      switch((nval.category).toLowerCase()){
+        case "home":home=parseInt(home+parseInt(nval.price));break;
+        case "bill":bill=parseInt(bill+parseInt(nval.price));break;
+        case "fastfood":fast=parseInt(fast+parseInt(nval.price));break;
+        case "diet":diet=parseInt(diet+parseInt(nval.price));break;
+        case "travel":travel=parseInt(travel+parseInt(nval.price));break;
+        case "misc":misc=parseInt(misc+parseInt(nval.price));break;
+        default:break;
+      }
+     
+      setHome(home);
+      setBill(bill);
+      setFast(fast);
+      setDiet(diet);
+      setTravel(travel);
+      setMisc(misc);
+     }
+    )
+  },[productData])
 
   const data = {
     labels: ['Home', 'Bill', 'FastFood', 'Diet', 'Travel', 'Misc'],
@@ -95,11 +103,16 @@ const Product=()=>{
       },
     ],
   };
-  
+  function refresh(){
+    setChange(change+10);
+    
+    socket.emit("productData",currentUser);
+  }
     return(<>
     <Fade top>
+      <Toolbar>
      <Typography variant="h5" className="mt-4 ms-3 "   sx={{background:"#ffffff00",color:"orange"}}>{currentUser.user} Summary</Typography>
-    
+     <Button variant="outlined" onClick={refresh} style={{background:"purple"}} className="ms-3 mt-3">Refresh</Button></Toolbar>
      <Toolbar style={{color:"white"}}>
     
    
