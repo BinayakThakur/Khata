@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import { DataProvider } from "./Datacontext";
 import Sign from "./components/Register";
 import { SnackbarProvider } from 'notistack';
+import Refer from "./components/Refer";
 const darkTheme = createTheme({
   palette:  {
     type: 'light',
@@ -38,6 +39,7 @@ function App() {
   
   <Route path="/register" component={Sign}></Route>
   <Route path="/home" component={Home}></Route>
+  <Route path="/" component={Refer}></Route>
    </Routers>
     </DataProvider>
     </SnackbarProvider>

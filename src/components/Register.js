@@ -1,4 +1,4 @@
-import { Alert,  Button, Card, CardContent,  Container, Divider, Grid,  TextField } from "@mui/material";
+import { Alert,  Button, Card, CardContent,  Container, Divider, Grid,  TextField, Typography } from "@mui/material";
 import { Formik } from "formik";
 import {  useState } from "react";
 import ParticleBackground from 'react-particle-backgrounds'
@@ -6,12 +6,12 @@ const settings = {
     canvas: {
       canvasFillSpace: true,
       width: 100,
-      height: 140,
+      height: 80,
       useBouncyWalls: false
     },
     particle: {
-      particleCount: 50,
-      color: 'cyan',
+      particleCount: 30,
+      color: 'pink',
       minSize: 2,
       maxSize: 5
     },
@@ -59,7 +59,7 @@ const Sign =()=>{
     const login=()=>{
         return (
             <>
-            <Card className="mt-5">
+            <Card className="mt-5" style={{background:"pink"}}>
                 <CardContent>
             <Formik initialValues={signform} onSubmit={signSubmit}>
 
@@ -116,7 +116,9 @@ const Sign =()=>{
                  <Grid item>
                 <Button variant="contained" className="mt-3 ms-5" type="submit" >
                      Register
+                     
                  </Button>
+           
                  </Grid>
                 
                    
