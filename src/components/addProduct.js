@@ -3,7 +3,6 @@ import Fade from 'react-reveal/Fade';
 import Adding from "./Adding";
 import Order from "./order";
 import Product from "./productGraph";
-import Remove from "./Remove";
 
 const Add = () =>{
     return (<div className="container">
