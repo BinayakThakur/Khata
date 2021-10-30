@@ -54,7 +54,7 @@ const Add = () =>{
 
     </Card>
     </Fade>
-    <Divider></Divider>
+
     
     
     
