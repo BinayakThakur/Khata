@@ -1,7 +1,7 @@
 import { BrowserRouter as Routers, Route } from "react-router-dom";
 import './App.css';
 import ButtonAppBar from './components/AppBar';
-import {  createTheme, ThemeProvider } from '@mui/material';
+import {  createTheme, ThemeProvider, Container } from '@mui/material';
 import Home from "./components/Home";
 import { DataProvider } from "./Datacontext";
 import Sign from "./components/Register";
@@ -11,20 +11,17 @@ import Refer from "./components/Refer";
 
 
 const darkTheme = createTheme({
-  palette:  {
-    type: 'light',
+  palette:    {
+    type: 'dark',
     primary: {
-      main: '#000000',
+      main: '#2B2B2D',
     },
     secondary: {
-      main: '#f50057',
+      main: '#000000',
     },
     background: {
       default: '#000000',
-      paper: '#0097a7',
-    },
-    text: {
-      primary: '#ffffff',
+      paper: '#000000',
     },
   },
   
@@ -36,7 +33,9 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <SnackbarProvider>
     <DataProvider>
-
+    <Container>
+      
+   
    <Routers>
    <ButtonAppBar/>
   
@@ -44,6 +43,7 @@ function App() {
   <Route path="/home" component={Home}></Route>
   <Route path="/" component={Refer}></Route>
    </Routers>
+   </Container>
     </DataProvider>
     </SnackbarProvider>
    </ThemeProvider>

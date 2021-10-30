@@ -1,4 +1,4 @@
-import { Card, CardContent, Divider, Typography } from "@mui/material";
+import { Card, CardContent, Divider, Grid, Typography } from "@mui/material";
 import Fade from 'react-reveal/Fade';
 import Adding from "./Adding";
 import Order from "./order";
@@ -6,10 +6,20 @@ import Product from "./productGraph";
 import Remove from "./Remove";
 
 const Add = () =>{
-    return (<>
+    return (<div className="container">
+    
+    <Grid
+      container
+      direction="row"
+      justifyContent="space-between"
+      alignItems="flex-start">
+        <Grid item xs={12} sm={7}>
     <Fade>
+        <Divider/>
     <Typography variant="h6" style={{color:"white"}} className="mt-3">Product management</Typography>
-    <Card sx={{width:"100",height:"100",background:"#212121"}} className="mt-4" style={{border:"40px"}}>
+    <Divider/>
+ 
+    <Card className="mt-4"  style={{border:"40px",background:"white"}}>
         <CardContent>
             <Fade>
                <Product></Product> 
@@ -18,46 +28,46 @@ const Add = () =>{
 
     </Card>
     </Fade>
+    </Grid>
+    <Grid item sm={4} xs={12}>
     <Divider></Divider>
     <Fade>
     <Typography variant="h6" style={{color:"white"}} className="mt-3">Manage Product</Typography>
-    <Card sx={{width:"100",height:"100",background:"#212121"}} className="mt-4" style={{border:"40px"}}>
+    <Divider/>
+    <Card className="mt-4" style={{border:"40px",background:"white"}}>
         <CardContent>
             <Fade>
-            <Order></Order>
-            </Fade>
-        </CardContent>
-
-    </Card>
-    </Fade>
-    <Divider></Divider>
-    <Fade>
-    <Typography variant="h6" style={{color:"white"}} className="mt-3">Order Product</Typography>
-    <Card sx={{width:"100",height:"100",background:"orange",color:"black"}} className="mt-4" style={{border:"40px"}}>
-        <CardContent>
-            <Fade>
+          
             <Adding></Adding>
             </Fade>
         </CardContent>
 
     </Card>
     </Fade>
-    <Divider></Divider>
+    </Grid>
+    
+    
+
+    
+
+
+    </Grid>
+    
     <Fade>
-    <Typography variant="h6" style={{color:"white"}} className="mt-3">Remove product</Typography>
-    <Card sx={{width:"100",height:"400px",background:"pink",color:"black"}} className="mt-4" style={{border:"40px",overflow:"auto"}}>
+    <Typography variant="h6" style={{color:"white"}} className="mt-3">Order Product</Typography>
+    <Divider></Divider>
+    <Card  className="mt-4" style={{border:"40px",background:"white"}}>
         <CardContent>
             <Fade>
-            <Remove></Remove>
+           
+            <Order></Order>
             </Fade>
         </CardContent>
 
     </Card>
     </Fade>
-
     
     
-    
-    </>)
+    </div>)
 }
 export default Add;

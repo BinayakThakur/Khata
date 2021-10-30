@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 import {  Line } from 'react-chartjs-2';
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../Datacontext";
+import Remove from "./Remove";
 
 const options = {
     scales: {
@@ -91,7 +92,7 @@ const Order = ()=>{
      </Fade>
          
           <Fade bottom>
-          <Card  style={{border:"100px",background:"#212121",color:"white"}}>
+          <Card  style={{border:"100px",background:"white",color:"black"}}>
         
     
     <Toolbar style={{color:"white"}}>
@@ -99,23 +100,26 @@ const Order = ()=>{
   
        <Box>
          
-       <Typography variant="caption" className="" style={{color:"cyan"}}>increase</Typography>
-       <Typography variant="h5" className="">N/A </Typography>
+       <Typography variant="caption" className="" style={{color:"black"}}>increase</Typography>
+       <Typography variant="h5" className="" style={{color:"black"}}>N/A </Typography>
        </Box>
        <Box>
-       <Typography variant="caption" className="ms-4">decrease</Typography>
-       <Typography variant="h5" className="ms-4">N/A </Typography>
+       <Typography variant="caption" className="ms-4" style={{color:"black"}}>decrease</Typography>
+       <Typography variant="h5" className="ms-4" style={{color:"black"}}>N/A </Typography>
        </Box>
        <Box>
-       <Typography variant="caption" className="ms-4"  style={{color:"#ff6699"}}>Stocks</Typography>
-       <Typography variant="h5" className="ms-4">N/A </Typography>
+       <Typography variant="caption" className="ms-4"  style={{color:"black"}}>Stocks</Typography>
+       <Typography variant="h5" className="ms-4" style={{color:"black"}}>N/A </Typography>
        </Box>
        
            </Toolbar>
            <Divider className="mt-3"></Divider>
          <CardContent>
            <Fade>
-          <Line data={data} options={options} className="mt-4" height="45" width="100"/>
+          <Line data={data} options={options} className="mt-4" height="80" width="100"/>
+          </Fade>
+          <Fade>
+            <Remove></Remove>
           </Fade>
         </CardContent>
        

@@ -24,7 +24,7 @@ export default function ButtonAppBar() {
       
       if(isLogged){
         
-        setOption(<Button color="inherit" className="under" onClick={logOut}>Log out</Button>)
+        setOption(<Button color="inherit" className="under" onClick={logOut} style={{ textDecoration: 'none' ,color:"white"}}>Log out</Button>)
       }
      // eslint-disable-next-line
     },[isLogged]
@@ -34,7 +34,7 @@ export default function ButtonAppBar() {
   },[isLogged,setOption]);
     return (
     <Box sx={{ flexGrow: 3}}>
-      <AppBar position="static" sx={{height:60}}>
+      <AppBar position="static" sx={{height:80}}>
         <Toolbar>
       
           <Typography variant="h6"  component="div" sx={{ flexGrow: 1 ,color:"white"}}>

@@ -110,15 +110,16 @@ const Product=()=>{
   }
     return(<>
     <Fade top>
+      
       <Toolbar>
-     <Typography variant="h5" className="mt-4 ms-3 "   sx={{background:"#ffffff00",color:"orange"}}>{currentUser.user} Summary</Typography>
-     <Button variant="outlined" onClick={refresh} style={{background:"purple"}} className="ms-3 mt-3">Refresh</Button></Toolbar>
-     <Toolbar style={{color:"white"}}>
-    
+     <Typography variant="h5" className="mt-4  "   sx={{background:"#ffffff00"}}>{currentUser.user} Summary</Typography>
+     <Button variant="outlined" onClick={refresh} style={{color:"black"}} className="ms-3 mt-3">Refresh</Button></Toolbar>
+     <Toolbar >
+        
    
         <Box>
           
-        <Typography variant="caption" className="" style={{color:"cyan"}}>increase</Typography>
+        <Typography variant="caption" className="">increase</Typography>
         <Typography variant="h5" className="">N/A </Typography>
         </Box>
         <Box>
@@ -126,15 +127,16 @@ const Product=()=>{
         <Typography variant="h5" className="ms-4">N/A </Typography>
         </Box>
         <Box>
-        <Typography variant="caption" className="ms-4"  style={{color:"#ff6699"}}>Stocks</Typography>
+        <Typography variant="caption" className="ms-4" >Stocks</Typography>
         <Typography variant="h5" className="ms-4">N/A </Typography>
         </Box>
         
             </Toolbar>
+            <Divider/>
      </Fade>
           <Divider className="mt-3"></Divider>
           <Fade bottom>
-          <Card  style={{border:"100px",background:"#212121",color:"white"}}>
+          <Card  style={{border:"100px",background:"white"}}>
             
          <CardContent>
            <Fade>
