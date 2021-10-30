@@ -96,7 +96,7 @@ const Remove = ()=>{
         
         <br/>
             <Grid item>
-            <Box  sx={{ background:"#F48FB1",width:"200px",p:3,border:2,borderRadius:4}}>
+            <Box  sx={{ background:"#F48FB1",width:"200px",p:3,border:2,borderRadius:4}} className="ms-2 mt-4">
             <Typography variant="subtitle2">
             <Grid>
             <Grid item className="ms-2 mt-2">Name : {product.product} </Grid> 
@@ -134,7 +134,7 @@ const Remove = ()=>{
    
     
     <Fade>
-    <Box style={{width:"1000px",height:"400px",overflow:"auto"}}>
+    <Box style={{width:"1000px",height:"500px",overflow:"auto"}}>
     <Container>
     <Grid
       container

@@ -6,7 +6,7 @@ export const DataContext = createContext();
 export const DataProvider = props =>{
     const[change,setChange]=useState("");
     var socket = io.connect("https://butlerservice.herokuapp.com/");
-   
+    
     const[isLogged,setLogged]=useState(false);
     const[productData,setProdData]=useState();
     const[currentUser,setUser]=useState();
