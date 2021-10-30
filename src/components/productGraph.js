@@ -4,6 +4,7 @@ import { useContext, useEffect ,useState} from "react";
 import {  Bar } from 'react-chartjs-2';
 import { DataContext } from "../Datacontext";
 import Fade from 'react-reveal/Fade';
+
 const options = {
   
   };
@@ -11,6 +12,7 @@ const options = {
   
 
 const Product=()=>{
+  var{socket}=useContext(DataContext);
   const{currentUser}=useContext(DataContext);
   const{setProdData}=useContext(DataContext);
   const[nhome,setHome]=useState(0);
@@ -20,25 +22,28 @@ const Product=()=>{
   const[ntravel,setTravel]=useState(0);
   const[nmisc,setMisc]=useState(0);
   useEffect(()=>{
+    
     const reqOptions = {
       method: 'POST',
       body: JSON.stringify(currentUser),
       headers: { 'Content-Type': 'application/json' }
     }
+  
     var home=0;
     var bill=0;
     var fast=0;
     var diet=0;
     var travel=0;
     var misc=0;
-  fetch("https://butlerservice.herokuapp.com/users/productData", reqOptions)
-     
-      .then(res => res.json() ).then(data=>{setProdData(data)
+    socket.emit("productData",currentUser);
+    socket.on("productData",(data)=>{
+       
+        setProdData(data)
        
         // eslint-disable-next-line
           data.map(
             // eslint-disable-next-line
-           (nval)=>{ console.log(nval.price+" ")
+           (nval)=>{ 
             switch((nval.category).toLowerCase()){
               case "home":home=parseInt(home+parseInt(nval.price));break;
               case "bill":bill=parseInt(bill+parseInt(nval.price));break;
@@ -58,15 +63,10 @@ const Product=()=>{
            }
           )
       
-      }
-       
-      
-      ).catch(err => {
-           
-      })
+    })
 
 
-  },[currentUser,setProdData])
+  },[socket])
 
   const data = {
     labels: ['Home', 'Bill', 'FastFood', 'Diet', 'Travel', 'Misc'],

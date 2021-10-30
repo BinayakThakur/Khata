@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 import {  Line } from 'react-chartjs-2';
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../Datacontext";
+
 const options = {
     scales: {
       yAxes: [
@@ -31,7 +32,9 @@ const Order = ()=>{
     return size;
   };
   useEffect(()=>{
+   
     if(productData!==undefined && Object.size(productData)>1){
+     
       // eslint-disable-next-line
       productData.map((val)=>{
         lab.push(val.date);
@@ -51,7 +54,7 @@ const Order = ()=>{
         
         
       });}
-      console.log(mydata)
+
       setData(mydata);
     }
 // eslint-disable-next-line

@@ -4,7 +4,9 @@ import { useSnackbar } from "notistack";
 import { useContext } from "react";
 import Fade from 'react-reveal/Fade';
 import { DataContext } from "../Datacontext";
+
 const Adding=()=>{
+    var{socket}=useContext(DataContext);
     const{enqueueSnackbar} = useSnackbar();
     const {currentUser} = useContext(DataContext);
     const val=currentUser.user;
@@ -19,20 +21,28 @@ const Adding=()=>{
     }
     
     const productSubmit = (e) =>{
+       
         console.log(e);
         const reqOptions = {
             method: 'POST',
             body: JSON.stringify(e),
             headers: { 'Content-Type': 'application/json' }
         }
+        
         fetch("https://butlerservice.herokuapp.com/users/product", reqOptions)
             .then(res => res.json() )
             .then( 
+                
                 enqueueSnackbar("Added"),{variant:"success"}
+               
             )
             .catch(err => {
              
             })
+            socket.emit("productData",currentUser);
+            
+       
+
     }
     return (<>
     <Formik initialValues={productData} onSubmit={productSubmit}>

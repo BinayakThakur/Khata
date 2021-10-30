@@ -4,16 +4,22 @@ import { DataContext } from "../Datacontext";
 import Fade from 'react-reveal/Fade';
 import { Box } from "@mui/system";
 import { useSnackbar } from "notistack";
+
+
 const Remove = ()=>{
+  const {currentUser} = useContext(DataContext);
   const{enqueueSnackbar} = useSnackbar();
   function sayHello(name) {
+    
     fetch("https://butlerservice.herokuapp.com/users/delete/"+name)
     .then(()=>{
       enqueueSnackbar("Removed",{variant:"success"});
+      
     })
     .catch(err => {
       enqueueSnackbar("Unable to remove",{variant:"error"});
     })
+    
   }
     Object.size = function(obj) {
         var size = 0,
@@ -29,7 +35,7 @@ const Remove = ()=>{
    
     useEffect(()=>{
         if(Object.size(productData)>1 && productData!==undefined){
-            console.log(productData)
+    
         // eslint-disable-next-line
         productData.map((product)=>{
             products.push(<>

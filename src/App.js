@@ -7,6 +7,9 @@ import { DataProvider } from "./Datacontext";
 import Sign from "./components/Register";
 import { SnackbarProvider } from 'notistack';
 import Refer from "./components/Refer";
+
+
+
 const darkTheme = createTheme({
   palette:  {
     type: 'light',
