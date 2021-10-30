@@ -1,37 +1,12 @@
-import { Button,Card,CardContent,Container, TextField } from "@mui/material";
+import { Button,Card,CardContent,Container, Divider, TextField } from "@mui/material";
 
 import { useContext, useEffect, useState } from "react";
 
 import { DataContext} from "../Datacontext";
 import Cards from "./Cards";
 import { Formik } from "formik";
-import ParticleBackground from 'react-particle-backgrounds'
+
 import { useSnackbar } from "notistack";
-const settings = {
-  canvas: {
-    canvasFillSpace: true,
-    width: 100,
-    height: 180,
-    useBouncyWalls: false
-  },
-  particle: {
-    particleCount: 50,
-    color: '#94ecbe',
-    minSize: 2,
-    maxSize: 5
-  },
-  velocity: {
-    directionAngle: 0,
-    directionAngleVariance: 360,
-    minSpeed: 1,
-    maxSpeed: 3
-  },
-  opacity: {
-    minOpacity: 0,
-    maxOpacity: 0.5,
-    opacityTransitionTime: 3000
-  }
-}
 
   const signform={
     user : '',
@@ -72,7 +47,10 @@ const Home = () =>{
       if(isLogged){
       setData(
         <>
-         <Cards></Cards></>
+         <Cards ></Cards>
+         <Divider className="mb-5"></Divider>
+         
+         </>
       )}
       else{
         
@@ -127,7 +105,7 @@ const Home = () =>{
         <Container>
         {myData}
         </Container>
-        <ParticleBackground settings={settings} />
+        
         </>
     )
 }

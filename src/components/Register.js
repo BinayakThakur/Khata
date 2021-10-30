@@ -1,32 +1,6 @@
 import { Alert,  Button, Card, CardContent,  Container, Divider, Grid,  TextField } from "@mui/material";
 import { Formik } from "formik";
 import {  useState } from "react";
-import ParticleBackground from 'react-particle-backgrounds'
-const settings = {
-    canvas: {
-      canvasFillSpace: true,
-      width: 100,
-      height: 80,
-      useBouncyWalls: false
-    },
-    particle: {
-      particleCount: 30,
-      color: 'pink',
-      minSize: 2,
-      maxSize: 5
-    },
-    velocity: {
-      directionAngle: 0,
-      directionAngleVariance: 360,
-      minSpeed: 1,
-      maxSpeed: 3
-    },
-    opacity: {
-      minOpacity: 0,
-      maxOpacity: 0.5,
-      opacityTransitionTime: 3000
-    }
-  }
 
 
 
@@ -139,7 +113,7 @@ const Sign =()=>{
     
     return(
     <>
-   <ParticleBackground settings={settings} />
+
     <Container>
         
         
@@ -151,6 +125,6 @@ const Sign =()=>{
         
         
     </Container>
-    <ParticleBackground settings={settings} /></>)
+  </>)
 }
 export default Sign;
