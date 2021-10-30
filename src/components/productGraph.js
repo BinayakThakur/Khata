@@ -84,7 +84,7 @@ const Product=()=>{
         label: 'Money used',
         data: [nhome,nbill, nfast, ndiet, ntravel, nmisc],
         backgroundColor: [
-          'rgba(255, 255, 255, 1)',
+          'rgba(24, 235, 155, 1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',

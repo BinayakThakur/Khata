@@ -1,4 +1,4 @@
-import { Button, Grid, TextField, Toolbar, Typography} from "@mui/material";
+import { Button, Container, Grid, TextField, Toolbar, Typography} from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../Datacontext";
 import Fade from 'react-reveal/Fade';
@@ -55,7 +55,7 @@ const Remove = ()=>{
             
             <br/>
                 <Grid item>
-                <Box sx={{ background:"orange",p:1,border:2,borderRadius:4}}>
+                <Box sx={{ background:"#F48FB1",width:"200px",p:1,border:2,borderRadius:4}} className="ms-2 mt-4">
                 <Typography variant="subtitle2">
                 <Grid>
                 <Grid item className="ms-2 mt-2">Name : {product.product} </Grid> 
@@ -65,7 +65,7 @@ const Remove = ()=>{
                 <Grid item className="ms-2 mt-2">Purpose : {product.purpose} </Grid>
                 <Grid item className="ms-2 mt-2">Price : {product.price} </Grid>
                 <Grid item className="mt-4 ">
-                <Button variant="contained" onClick={() => sayHello(product._id)} id="pro"  className="ms-3">Remove</Button>
+                <Button variant="contained" onClick={() => sayHello(product._id)} id="pro"  className="ms-5">Remove</Button>
                 </Grid>
                 </Grid>
                 
@@ -96,7 +96,7 @@ const Remove = ()=>{
         
         <br/>
             <Grid item>
-            <Box sx={{ background:"orange",p:1,border:2,borderRadius:4}}>
+            <Box  sx={{ background:"#F48FB1",width:"200px",p:3,border:2,borderRadius:4}}>
             <Typography variant="subtitle2">
             <Grid>
             <Grid item className="ms-2 mt-2">Name : {product.product} </Grid> 
@@ -132,15 +132,21 @@ const Remove = ()=>{
     
     </Toolbar>
    
+    
+    <Fade>
+    <Box style={{width:"1000px",height:"400px",overflow:"auto"}}>
+    <Container>
     <Grid
       container
-      direction="coloumn"
-      justifyContent="space-evenly"
-      alignItems="flex-start">
-    <Fade>
+      direction="row"
+      justifyContent="space-between"
+      alignItems="center">
     {val}
-    </Fade>
     </Grid>
+    </Container>
+    </Box>
+    </Fade>
+    
     </>);
 }
 export default Remove;
