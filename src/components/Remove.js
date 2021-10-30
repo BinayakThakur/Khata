@@ -8,7 +8,7 @@ import { useSnackbar } from "notistack";
 
 const Remove = ()=>{
   // eslint-disable-next-line
-  const {currentUser} = useContext(DataContext);
+
   const{enqueueSnackbar} = useSnackbar();
   function sayHello(name) {
     

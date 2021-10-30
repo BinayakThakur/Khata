@@ -37,7 +37,7 @@ const Product=()=>{
     var misc=0;
     socket.emit("productData",currentUser);
     socket.on("productData",(data)=>{
-       
+       console.log(reqOptions)
         setProdData(data)
        
         // eslint-disable-next-line
@@ -64,8 +64,8 @@ const Product=()=>{
           )
       
     })
-
-    // eslint-disable-next-line
+    
+// eslint-disable-next-line
   },[socket])
 
   const data = {
