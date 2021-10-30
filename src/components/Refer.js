@@ -4,6 +4,7 @@ const Refer=()=>{
     let history=useHistory();
     useEffect(()=>{
         history.push("/home");
+        // eslint-disable-next-line
     },[]);
     return(
         <>
