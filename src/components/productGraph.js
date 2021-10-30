@@ -22,7 +22,7 @@ const Product=()=>{
   const[ntravel,setTravel]=useState(0);
   const[nmisc,setMisc]=useState(0);
   useEffect(()=>{
-    
+    // eslint-disable-next-line
     const reqOptions = {
       method: 'POST',
       body: JSON.stringify(currentUser),
@@ -65,7 +65,7 @@ const Product=()=>{
       
     })
 
-
+    // eslint-disable-next-line
   },[socket])
 
   const data = {
